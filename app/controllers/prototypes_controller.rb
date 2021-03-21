@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    
+    @prototypes = Prototype.all
   end
 
   def new
@@ -9,14 +9,38 @@ class PrototypesController < ApplicationController
 
 
   def create
-    if
-    Prototype.create(prototype_params)
+    if Prototype.create(prototype_params)
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    @prototype = Prototype.find(params[:id])
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path, method: :get
+    else
+      render :edit
+    end
 
   end
+
+
+  def destroy
+    prototype = Prototype.find(params[:id])
+    prototype.destroy
+    redirect_to root_path
+  end
+
 
 
   private
