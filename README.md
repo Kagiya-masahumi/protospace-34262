@@ -29,16 +29,7 @@
 - belongs_to :user
 
 
-## prototype_users テーブル
 
-| Column      | Type        | Options                             |
-| --------    | ------      | ---------                           |
-| user        | references  | null: false, foreign_key : true     |
-| prototype   | references  | null: false, foreign_key : true     |
-
-### Association
- - belongs_to :user
- - belongs_to :prototype
 
 
 ## comments テーブル

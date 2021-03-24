@@ -1,6 +1,7 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.all
+    @prototypes = Prototype.all 
+    
   end
 
   def new
@@ -12,12 +13,15 @@ class PrototypesController < ApplicationController
     if Prototype.create(prototype_params)
       redirect_to root_path
     else
-      render :new
+      render "prototypes/new"
     end
   end
 
   def show
     @prototype = Prototype.find(params[:id])
+    @comment = Comment.new
+    @comments = @prototype.comments.includes(:user)
+
   end
 
   def edit
