@@ -12,7 +12,6 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new(params[:id])
   end
 
-
   def create
     if Prototype.create(prototype_params)
       redirect_to root_path
