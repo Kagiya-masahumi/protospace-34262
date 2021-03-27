@@ -102,6 +102,7 @@ RSpec.describe 'ツイート編集', type: :system do
         find('#prototype_title').value
       ).to eq(@prototype1.title)
       # 投稿内容を編集する
+
       
       fill_in 'prototype_title', with: "#{@prototype1.title}+編集したテキスト"
       # 編集してもPrototypeモデルのカウントは変わらないことを確認する
